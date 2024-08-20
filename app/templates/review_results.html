@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Results</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Review Your Results</h1>
+        <!-- Display the entered results for review here -->
+        <a class="btn btn-secondary mt-3" href="{{ url_for('enter_results', program_id=program_id) }}">Edit Results</a>
+
+        <!-- Form for calculating GPA -->
+        <form method="POST" action="{{ url_for('review_results', program_id=program_id) }}">
+            <button type="submit" class="btn btn-primary mt-3">Calculate GPA</button>
+        </form>
+
+        <!-- Display GPA if available -->
+        {% if gpa is not none %}
+            <h2 class="mt-5">Calculated GPA: {{ gpa }}</h2>
+        {% endif %}
+    </div>
+</body>
+</html>

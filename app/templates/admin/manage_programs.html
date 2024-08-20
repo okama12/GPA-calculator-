@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Programs</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Manage Programs</h1>
+        <form method="post" class="mb-4">
+            <div class="form-group">
+                <label for="faculty">Faculty</label>
+                <select id="faculty" name="faculty" class="form-control" required>
+                    <option value="">Select Faculty</option>
+                    {% for faculty in faculties %}
+                        <option value="{{ faculty.id }}">{{ faculty.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="name">Program Name</label>
+                <input type="text" id="name" name="name" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Program</button>
+        </form>
+        <table class="table mt-5">
+            <thead>
+                <tr>
+                    <th>Faculty</th>
+                    <th>Name</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for program in programs %}
+                    <tr>
+                        <td>{{ program.faculty.name }}</td>
+                        <td>{{ program.name }}</td>
+                        <td>
+                            <a href="{{ url_for('edit_program', id=program.id) }}" class="btn btn-warning btn-sm">Edit</a>
+                            <a href="{{ url_for('delete_program', id=program.id) }}" class="btn btn-danger btn-sm">Delete</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
