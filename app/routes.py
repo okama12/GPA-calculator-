@@ -85,6 +85,12 @@ def review_results(program_id):
         return render_template('review_results.html', gpa=gpa, results=results, program_id=program_id)
 
     return render_template('review_results.html', program_id=program_id, results=results)
+
+
+@app.route('/edit_results/<int:program_id>', methods=['GET', 'POST'])
+def edit_results(program_id):
+    results = session.get('results', [])
+    return render_template('edit_results.html', results=results, program_id=program_id)
     
 
     

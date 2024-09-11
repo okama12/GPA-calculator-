@@ -1,0 +1,235 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Edit Results</title>
+     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+ </head>
+ <body>
+     <div class="container">
+         <h1 class="mt-5">Edit Your Results</h1>
+         <form method="post">
+
+             <!-- Year One Accordion -->
+             <div class="accordion" id="accordionYearOne">
+                 <div class="card">
+                     <div class="card-header" id="headingYearOne">
+                         <h2 class="mb-0">
+                             <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseYearOne" aria-expanded="true" aria-controls="collapseYearOne">
+                                 Year One
+                             </button>
+                         </h2>
+                     </div>
+
+                     <div id="collapseYearOne" class="collapse show" aria-labelledby="headingYearOne" data-parent="#accordionYearOne">
+                         <div class="card-body">
+
+                             <!-- Semester One Accordion -->
+                             <div class="accordion" id="accordionSemesterOneYearOne">
+                                 <div class="card">
+                                     <div class="card-header" id="headingSemesterOneYearOne">
+                                         <h2 class="mb-0">
+                                             <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseSemesterOneYearOne" aria-expanded="true" aria-controls="collapseSemesterOneYearOne">
+                                                 Semester One
+                                             </button>
+                                         </h2>
+                                     </div>
+
+                                     <div id="collapseSemesterOneYearOne" class="collapse show" aria-labelledby="headingSemesterOneYearOne" data-parent="#accordionSemesterOneYearOne">
+                                         <div class="card-body">
+                                             {% for result in results if result.subject.year == 1 and result.subject.semester == 1 %}
+                                                 <div class="form-group">
+                                                     <label for="result{{ result.id }}">{{ result.name }} (Credits: {{ result.credits }})</label>
+                                                     <input type="text" class="form-control" id="result{{ result.id }}" name="result{{ result.id }}" placeholder="Enter grade (e.g., A, B+)" value="result{{result.grade}}">
+                                                 </div>
+                                             {% endfor %}
+                                         </div>
+                                     </div>
+                                 </div>
+                             </div>
+
+                             <!-- Semester Two Accordion -->
+                             <div class="accordion mt-3" id="accordionSemesterTwoYearOne">
+                                 <div class="card">
+                                     <div class="card-header" id="headingSemesterTwoYearOne">
+                                         <h2 class="mb-0">
+                                             <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseSemesterTwoYearOne" aria-expanded="false" aria-controls="collapseSemesterTwoYearOne">
+                                                 Semester Two
+                                             </button>
+                                         </h2>
+                                     </div>
+
+                                     <div id="collapseSemesterTwoYearOne" class="collapse" aria-labelledby="headingSemesterTwoYearOne" data-parent="#accordionSemesterTwoYearOne">
+                                         <div class="card-body">
+                                             {% for result in results if result.year == 1 and result.semester == 2 %}
+                                                 <div class="form-group">
+                                                     <label for="result{{ result.id }}">{{ result.name }} (Credits: {{ result.credits }})</label>
+                                                     <input type="text" class="form-control" id="result{{ result.id }}" name="result{{ result.id }}" placeholder="Enter grade (e.g., A, B+)" value="result{{result.grade}}">
+                                                 </div>
+                                             {% endfor %}
+                                         </div>
+                                     </div>
+                                 </div>
+                             </div>
+
+                         </div>
+                     </div>
+                 </div>
+             </div>
+
+             <!-- Year Two Accordion -->
+             <div class="accordion mt-3" id="accordionYearTwo">
+                 <div class="card">
+                     <div class="card-header" id="headingYearTwo">
+                         <h2 class="mb-0">
+                             <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseYearTwo" aria-expanded="false" aria-controls="collapseYearTwo">
+                                 Year Two
+                             </button>
+                         </h2>
+                     </div>
+
+                     <div id="collapseYearTwo" class="collapse" aria-labelledby="headingYearTwo" data-parent="#accordionYearTwo">
+                         <div class="card-body">
+
+                             <!-- Semester One Accordion -->
+                             <div class="accordion" id="accordionSemesterOneYearTwo">
+                                 <div class="card">
+                                     <div class="card-header" id="headingSemesterOneYearTwo">
+                                         <h2 class="mb-0">
+                                             <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseSemesterOneYearTwo" aria-expanded="false" aria-controls="collapseSemesterOneYearTwo">
+                                                 Semester One
+                                             </button>
+                                         </h2>
+                                     </div>
+
+                                     <div id="collapseSemesterOneYearTwo" class="collapse" aria-labelledby="headingSemesterOneYearTwo" data-parent="#accordionSemesterOneYearTwo">
+                                         <div class="card-body">
+                                             {% for result in results if result.year == 2 and result.semester == 1 %}
+                                                 <div class="form-group">
+                                                     <label for="result{{ result.id }}">{{ result.name }} (Credits: {{ result.credits }})</label>
+                                                     <input type="text" class="form-control" id="result{{ result.id }}" name="result{{ result.id }}" placeholder="Enter grade (e.g., A, B+)" value="result{{result.grade}}">
+                                                 </div>
+                                             {% endfor %}
+                                         </div>
+                                     </div>
+                                 </div>
+                             </div>
+
+                             <!-- Semester Two Accordion -->
+                             <div class="accordion mt-3" id="accordionSemesterTwoYearTwo">
+                                 <div class="card">
+                                     <div class="card-header" id="headingSemesterTwoYearTwo">
+                                         <h2 class="mb-0">
+                                             <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseSemesterTwoYearTwo" aria-expanded="false" aria-controls="collapseSemesterTwoYearTwo">
+                                                 Semester Two
+                                             </button>
+                                         </h2>
+                                     </div>
+
+                                     <div id="collapseSemesterTwoYearTwo" class="collapse" aria-labelledby="headingSemesterTwoYearTwo" data-parent="#accordionSemesterTwoYearTwo">
+                                         <div class="card-body">
+                                             {% for result in results if result.year == 2 and result.semester == 2 %}
+                                                 <div class="form-group">
+                                                     <label for="result{{ result.id }}">{{ result.name }} (Credits: {{ result.credits }})</label>
+                                                     <input type="text" class="form-control" id="result{{ result.id }}" name="result{{ result.id }}" placeholder="Enter grade (e.g., A, B+)" value="result{{result.grade}}">
+                                                 </div>
+                                             {% endfor %}
+                                         </div>
+                                     </div>
+                                 </div>
+                             </div>
+
+                         </div>
+                     </div>
+                 </div>
+             </div>
+
+             <!-- Year Three Accordion -->
+             <div class="accordion mt-3" id="accordionYearThree">
+                 <div class="card">
+                     <div class="card-header" id="headingYearThree">
+                         <h2 class="mb-0">
+                             <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseYearThree" aria-expanded="false" aria-controls="collapseYearThree">
+                                 Year Three
+                             </button>
+                         </h2>
+                     </div>
+
+                     <div id="collapseYearThree" class="collapse" aria-labelledby="headingYearThree" data-parent="#accordionYearThree">
+                         <div class="card-body">
+
+                             <!-- Semester One Accordion -->
+                             <div class="accordion" id="accordionSemesterOneYearThree">
+                                 <div class="card">
+                                     <div class="card-header" id="headingSemesterOneYearThree">
+                                         <h2 class="mb-0">
+                                             <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseSemesterOneYearThree" aria-expanded="false" aria-controls="collapseSemesterOneYearThree">
+                                                 Semester One
+                                             </button>
+                                         </h2>
+                                     </div>
+
+                                     <div id="collapseSemesterOneYearThree" class="collapse" aria-labelledby="headingSemesterOneYearThree" data-parent="#accordionSemesterOneYearThree">
+                                         <div class="card-body">
+                                             {% for result in results if result.year == 3 and result.semester == 1 %}
+                                                 <div class="form-group">
+                                                     <label for="result{{ result.id }}">{{ result.name }} (Credits: {{ result.credits }})</label>
+                                                     <input type="text" class="form-control" id="result{{ result.id }}" name="result{{ result.id }}" placeholder="Enter grade (e.g., A, B+)" value="result{{result.grade}}">
+                                                 </div>
+                                             {% endfor %}
+                                         </div>
+                                     </div>
+                                 </div>
+                             </div>
+ 
+
+
+
+                            <!-- Semester Two Accordion -->
+                            <div class="accordion mt-3" id="accordionSemesterTwoYearThree">
+                                <div class="card">
+                                    <div class="card-header" id="headingSemesterTwoYearThree">
+                                        <h2 class="mb-0">
+                                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseSemesterTwoYearThree" aria-expanded="false" aria-controls="collapseSemesterTwoYearThree">
+                                                Semester Two
+                                            </button>
+                                        </h2>
+                                    </div>
+
+                                    <div id="collapseSemesterTwoYearThree" class="collapse" aria-labelledby="headingSemesterTwoYearThree" data-parent="#accordionSemesterTwoYearThree">
+                                        <div class="card-body">
+                                            {% for result in results if result.year == 3 and result.semester == 2 %}
+                                                <div class="form-group">
+                                                    <label for="result{{ result.id }}">{{ result.name }} (Credits: {{ result.credits }})</label>
+                                                    <input type="text" class="form-control" id="result{{ result.id }}" name="result{{ result.id }}" placeholder="Enter grade (e.g., A, B+)" value="result{{result.grade}}">
+                                                </div>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                                        
+                                                         
+                                        
+                    
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary mt-4 text-center">Submit Results</button>
+        </form>
+    </div>
+</body>
+</html>

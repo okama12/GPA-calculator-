@@ -18,4 +18,6 @@ class Subject(db.Model):
     credits = db.Column(db.Integer, nullable=False)
     year = db.Column(db.Integer)
     semester = db.Column(db.Integer)
+
+
     

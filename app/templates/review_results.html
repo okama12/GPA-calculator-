@@ -10,7 +10,7 @@
     <div class="container">
         <h1 class="mt-5">Review Your Results</h1>
         <!-- Display the entered results for review here -->
-        <a class="btn btn-secondary mt-3" href="{{ url_for('enter_results', program_id=program_id) }}">Edit Results</a>
+        <a class="btn btn-secondary mt-3" href="{{ url_for('edit_results', program_id=program_id) }}">Edit Results</a>
 
         <!-- Form for calculating GPA -->
         <form method="POST" action="{{ url_for('review_results', program_id=program_id) }}">
